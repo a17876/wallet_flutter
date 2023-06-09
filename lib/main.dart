@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'widgets/button.dart';
 
 void main() {
   runApp(const App());
@@ -71,59 +72,94 @@ class App extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const MyButton(),
-                Container(
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF1F2123),
-                    borderRadius: BorderRadius.circular(45),
+                Button(
+                    text: "Transfer",
+                    bgColor: Color(0xFFF2B33A),
+                    textColor: Colors.black),
+                Button(
+                    text: "Request",
+                    bgColor: Color(0xFF1F2123),
+                    textColor: Colors.white),
+              ],
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Wallets',
+                  style: TextStyle(
+                    fontSize: 36,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
                   ),
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(
-                      vertical: 20,
-                      horizontal: 50,
-                    ),
-                    child: Text(
-                      'Request',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
-                    ),
+                ),
+                Text(
+                  'View All',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white.withOpacity(0.8),
                   ),
                 ),
               ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: const Color(0xFF1F2123),
+                borderRadius: BorderRadius.circular(25),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(25),
+                child: Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('Euro',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 40,
+                            )),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            const Text(
+                              '6 428',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            Text('EUR',
+                                style: TextStyle(
+                                  color: Colors.white.withOpacity(0.8),
+                                  fontSize: 18,
+                                )),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
       ),
     ));
-  }
-}
-
-class MyButton extends StatelessWidget {
-  const MyButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: const Color(0xFFF2B33A),
-        borderRadius: BorderRadius.circular(45),
-      ),
-      child: const Padding(
-        padding: EdgeInsets.symmetric(
-          vertical: 20,
-          horizontal: 50,
-        ),
-        child: Text(
-          'Transfer',
-          style: TextStyle(
-            fontSize: 20,
-          ),
-        ),
-      ),
-    );
   }
 }
