@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wallet_flutter/widgets/currency_card.dart';
 import 'widgets/button.dart';
 
 void main() {
@@ -21,7 +22,7 @@ class App extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 80,
+              height: 50, //50
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -49,7 +50,7 @@ class App extends StatelessWidget {
               ],
             ),
             const SizedBox(
-              height: 120,
+              height: 50, // 120
             ),
             Text(
               'Total Balance',
@@ -62,7 +63,7 @@ class App extends StatelessWidget {
               height: 10,
             ),
             const Text(
-              '\$5 194 382',
+              '\$5 194 482',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
@@ -70,7 +71,7 @@ class App extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 10, //30
             ),
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -86,7 +87,7 @@ class App extends StatelessWidget {
               ],
             ),
             const SizedBox(
-              height: 50,
+              height: 10, //50
             ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -110,52 +111,28 @@ class App extends StatelessWidget {
               ],
             ),
             const SizedBox(
-              height: 20,
+              height: 10, //20
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: const Color(0xFF1F2123),
-                borderRadius: BorderRadius.circular(25),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(25),
-                child: Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('Euro',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 40,
-                            )),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          children: [
-                            const Text(
-                              '6 428',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            Text('EUR',
-                                style: TextStyle(
-                                  color: Colors.white.withOpacity(0.8),
-                                  fontSize: 18,
-                                )),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+            const CurrencyCard(
+              name: "Euro",
+              code: 'EUR',
+              amount: "6 428",
+              icon: Icons.euro_rounded,
+              isInverted: false,
+            ),
+            const CurrencyCard(
+              name: "Bitcoin",
+              code: 'BTC',
+              amount: "3 445",
+              icon: Icons.currency_bitcoin,
+              isInverted: true,
+            ),
+            const CurrencyCard(
+              name: "Dollar",
+              code: 'USD',
+              amount: "1 110",
+              icon: Icons.attach_money_outlined,
+              isInverted: false,
             ),
           ],
         ),
